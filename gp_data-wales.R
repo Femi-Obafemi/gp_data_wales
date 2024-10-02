@@ -118,7 +118,7 @@ top_five_drugs_jitter <- ggplot(data = top_five_drugs, aes(x = reorder
 
 print(top_five_drugs_jitter)
 cat("\n\n")
-cat("1a - These plots show the top five drugs that '", practiceid,"' 
+cat("- These plots show the top five drugs that '", practiceid,"' 
     spends the most money on, \n\n")
 
 

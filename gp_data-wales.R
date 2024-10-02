@@ -1,6 +1,5 @@
-#2117552_102_RESUB_R_SCRIPT
+#GP_data_wales
 
-#PART 1
 
 #load the needed packages
 
@@ -15,7 +14,7 @@ library(tidyr)          #transforming and reshaping data to make it more
                         #suitable for analysis and visualization
 
 
-#1a.
+
 cat("What five drugs does the practice spend the most money on?")
 cat("\n\n")
 cat("user will input a practiceid")
@@ -123,7 +122,7 @@ cat("1a - These plots show the top five drugs that '", practiceid,"'
     spends the most money on, \n\n")
 
 
-cat("1b.")
+
 cat("What region is this practice in?")
 cat("\n\n")
 
@@ -138,7 +137,7 @@ gp_data <- dbGetQuery(con, paste0("SELECT hb
 
 # Nested loop to check 'hb' column and print corresponding Health Board name
 
-cat("1b. -  '", practiceid,"' belongs to the - ")
+cat("-  '", practiceid,"' belongs to the - ")
 for (i in 1:nrow(gp_data)) {
   hb <- gp_data$hb[i]
   if (hb == "7A1") {
@@ -166,7 +165,6 @@ for (i in 1:nrow(gp_data)) {
 }
 
 cat("\n\n")
-cat("1c.")
 
 cat("How does '", practiceid,"' rate of smoking compare to Wales as a whole, 
 as well as other practices in its region?")
@@ -285,10 +283,9 @@ rate_of_smoking_bar <- ggplot(data = rates_table) +
 print(rate_of_smoking_bar)
 
 cat("\n\n")
-cat("1c. - The plot shows the comparism among '", practiceid,"' rate of smoking, 
+cat("- The plot shows the comparism among '", practiceid,"' rate of smoking, 
 other practices in the same Health Board and the whole of Wales., \n\n")
 
-cat("2a.")
 cat("Smoking is associated with a number of chronic diseases. I will Use statistical 
 analysis to show the relationship between the rate of smoking at 
 practices and the rates of the following diseases: asthma, cancer, 
@@ -352,7 +349,6 @@ cat("2a. - The disease most strongly associated with smoking, using correlation
     is:", most_strongly_associated_disease, "\n\n")
 
 
-cat("2b.")
 cat("Do practices with higher rates of smoking spend more or less on medications?")
 cat("\n\n")
 
@@ -380,7 +376,7 @@ drug_vs_smoking_plot <- ggplot(smok_cost, aes(x = smoking_rates, y = drug_cost))
 
 print(drug_vs_smoking_plot)
 
-cat("2b. - The scatter plot shows the relationship between the smoking rate and the 
+cat("- The scatter plot shows the relationship between the smoking rate and the 
 drug cost in practices. 
 The smoking rate is the percentage of people who 
 smoke in the practices, and the drug cost is the average cost of prescription 
@@ -403,14 +399,12 @@ is a chronic lung disease that requires expensive medication., \n\n")
 
 #######################
 
-cat("PART 2")
 cat("\n\n")
 cat("a.I will show the relationship between metformin prescription and the rate
 of obesity and hypertension in practices in wales, and also show Which 
 relationship is stronger with plots.") 
 
 cat("\n\n")
-cat("PART 2a")
 cat("\n\n")
 
 hyp_ob <- dbGetQuery(con, paste0("
@@ -469,7 +463,7 @@ obesity_line_plot <- ggplot(hyp_ob_met, aes(x = metformin_prescription,
 print(obesity_line_plot)
 
 cat("\n\n")
-cat("Part 2a - The Scatter plot shows the relationship between the hypertension rate 
+cat("- The Scatter plot shows the relationship between the hypertension rate 
 and the metformin prescription rate. The hypertension rate is the percentage of 
 people who have hypertension, and the metformin prescription rate is the percentage 
 of people who are prescribed metformin.
@@ -482,7 +476,6 @@ Overall, the plot shows that there is a strong positive relationship between the
 hypertension rate and the metformin prescription rate., \n\n")
 
 
-cat("PART 2b")
 cat("\n\n")
 
 cat("b.I will show the prevalence of illnesses at user chosen practice showing 
@@ -590,11 +583,10 @@ prac_wales_plot <- ggplot(reshaped_table, aes(x = diseases, y = rates, fill = so
 print(prac_wales_plot)
 
 cat("\n\n")
-cat("Part 2b - This plot shows the prevalence of the diseases in '", practiceid2,"'
+cat("- This plot shows the prevalence of the diseases in '", practiceid2,"'
     and compared to the prevalence in the whole of Wales for the year 2015, \n\n")
 cat("\n\n")
 
-cat("PART2C")
 cat("\n\n")
 cat("c.I will show the prevalence of illnesses in '", practiceid2,"'showing 
 percentages and comparing it to the average of the different prevalence in 
@@ -693,7 +685,7 @@ prac_hb_plot <- ggplot(reshaped_table_2, aes(x = diseases, y = rates, fill = sou
 print(prac_hb_plot)
 
 cat("\n\n")
-cat("Part2c. - This plot shows the prevalence of the diseases in '", practiceid2,"'
+cat("- This plot shows the prevalence of the diseases in '", practiceid2,"'
 and compared to the average of all the practices in the same Health 
 Board for the year 2015, \n\n")
 cat("END")
